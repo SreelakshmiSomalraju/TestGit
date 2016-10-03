@@ -6,5 +6,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Batch Status Notification</name>
     <style>none</style>
+    <subject>Batch Status Notification</subject>
     <type>visualforce</type>
 </EmailTemplate>

@@ -1,0 +1,42 @@
+<apex:component controller="BatchStatusController" access="global">
+    
+Hi,<br/>
+Please find the below details of Batches<br/>
+<html>
+<head>
+<style>
+table,th,td {border: 1px solid black;border: 1px solid black;border-collapse: collapse;padding: 5px;text-align: left;}
+</style>
+</head>
+<body>
+<table>
+<tr>
+ <th>JobId</th> 
+ <th>BatchId</th> 
+ <th>Status</th>
+ <th>No.Of Records Processed</th>
+ <th>No.of Failure Records</th>
+ <th>Object</th><th>Operation</th>
+ <th>Created Date</th>
+ </tr>
+ <apex:repeat var="B" value="{!Batchlist}">
+ <tr>
+ <span>
+ <td><apex:outputlink value="https://{!currentBaseURL}/{!B.BulkAPIJob_ID__r.Name}">{!B.BulkAPIJob_ID__r.Name}</apex:outputlink></td>
+ </span>
+ <td>{!B.Name}</td>
+ <td>{!B.State__c}</td>
+ <td>{!B.NumberOfRecordsProcessed__c}</td>
+ <td style="{!IF(B.NumberOfRecordsFailed__c == TEXT(0),'','color:red')}">{!B.NumberOfRecordsFailed__c}</td>
+ <td>{!B.BulkAPIJob_ID__r.Object__c}</td>
+ <td>{!B.BulkAPIJob_ID__r.Operation__c}</td>
+ <td>{!B.Created_Date__c}</td>
+ </tr>
+ </apex:repeat>
+ </table><br/>
+ --------------------------------------------------------------------------<br/>
+ Report generated on {!Now()}
+ </body>
+ </html>           
+
+</apex:component>
