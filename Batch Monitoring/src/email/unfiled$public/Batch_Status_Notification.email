@@ -1,5 +1,5 @@
 <messaging:emailTemplate subject="Batch Status Notification" recipientType="User" relatedToType="BulkAPIJob__c">
     <messaging:htmlEmailBody > 
-        <c:BatchStatusComponent/>         
+        <c:BatchStatusComponent />         
     </messaging:htmlEmailBody> 
 </messaging:emailTemplate>
